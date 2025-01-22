@@ -1,5 +1,6 @@
-<section class="bg-gray-50">
-    <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:items-center">
+<section class="relative bg-gray-50">
+    <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('{{ asset('assets/images/2.png') }}');"></div>
+    <div class="relative mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:items-center">
       <div class="mx-auto max-w-xl text-center">
         <h1 class="text-3xl font-extrabold sm:text-5xl">
           Delicious Recipes, Now at Your Fingertips.
@@ -29,4 +30,4 @@
         </div>
       </div>
     </div>
-  </section>
+</section>
