@@ -1,5 +1,5 @@
 <section class="relative bg-gray-50">
-    <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('{{ asset('assets/images/2.png') }}');"></div>
+    <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('{{ asset('assets/images/hero.jpg') }}');"></div>
     <div class="relative mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:items-center">
       <div class="mx-auto max-w-xl text-center">
         <h1 class="text-3xl font-extrabold sm:text-5xl">
@@ -22,7 +22,7 @@
           </a>
 
           <a
-            class="block w-full rounded px-12 py-3 text-sm font-medium text-green-700 shadow hover:text-green-800 focus:outline-none focus:ring active:text-green-500 sm:w-auto"
+            class="block w-full rounded px-12 py-3 text-sm font-medium text-green-700 bg-white shadow hover:text-green-800 focus:outline-none focus:ring active:text-green-500 sm:w-auto"
             href="#"
           >
             Learn More
