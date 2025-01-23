@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ingredients', function (Blueprint $table) {
+        Schema::create('recipes', function (Blueprint $table) {
+
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
+            $table->text('description');
+            $table->text('instructions');
+            $table->string('image')->nullable();
             $table->timestamps();
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
         });
-
     }
 
     /**
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ingredients');
+        Schema::dropIfExists('recipes');
     }
 };
