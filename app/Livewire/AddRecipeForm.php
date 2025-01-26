@@ -28,7 +28,7 @@ class AddRecipeForm extends Component
     public function save(){
         $this->validate([
             'recipe_name' => 'required',
-            'photo' => 'image|required|mimes:jpeg,jpg,png|max:1024',
+            'photo' => 'image|required|mimes:jpeg,jpg,png,webp|max:1024',
             'recipe_description' => 'required',
             'recipe_price' => 'required|numeric',
             'category_id' => 'required',
