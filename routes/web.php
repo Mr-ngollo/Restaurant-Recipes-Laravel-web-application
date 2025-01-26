@@ -3,6 +3,7 @@
 use App\Livewire\AddCategory;
 use App\Livewire\AddRecipeForm;
 use App\Livewire\AdminDashoard;
+use App\Livewire\EditRecipe;
 use App\Livewire\ManageCategory;
 use App\Livewire\ManageOrders;
 use App\Livewire\ManageRecipe;
@@ -28,4 +29,6 @@ group(["middleware" => "admin"], function () {
     Route::get('/add/recipe', AddRecipeForm::class);
 
     Route::get('/add/category', AddCategory::class);
+
+    Route::get('/edit/{id}/recipe', EditRecipe::class);
 });
