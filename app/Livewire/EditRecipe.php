@@ -25,21 +25,19 @@ class EditRecipe extends Component
         $this->recipe_price = $this->recipe_details->price;
         $this->category_id = $this->recipe_details->category_id;
         $this->photo = $this->recipe_details->image;
-        // dd($this->recipe_details);
         $this->all_categories = Category::all();
     }
     public function update(){
-        //validation
         $this->validate([
             'recipe_name' => 'required|string|max:255',
             'recipe_description' => 'required|string',
             'recipe_price' => 'required|numeric',
             'category_id' => 'required|exists:categories,id',
-            'photo' => 'nullable|image|max:1024', // Validate the photo
+            'photo' => 'nullable|image|max:1024',
         ]);
         //check if the image update/uploaded
         if ($this->photo && !is_string($this->photo)) {
-            $photoPath = $this->photo->store('photos', 'public');
+            $photoPath = $this->photo->store('photos');
         } else {
             $photoPath = $this->photo; // Keep the old image path
         }
@@ -62,6 +60,7 @@ class EditRecipe extends Component
         // // dd($explode_url);
         // $this->currentUrl = $explode_url[3].' '.$explode_url[5];
 
-        return view('livewire.edit-recipe')->layout('admin-layout');
+        return view('livewire.edit-recipe')
+        ->layout('admin-layout');
     }
 }

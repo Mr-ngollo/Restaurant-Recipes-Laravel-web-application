@@ -34,7 +34,7 @@ class AddRecipeForm extends Component
             'category_id' => 'required',
         ]);
 
-        $path = $this->photo->store('public/photos');
+        $path = $this->photo->store('photos');
 
         $product = new Recipe();
         $product->name = $this->recipe_name;

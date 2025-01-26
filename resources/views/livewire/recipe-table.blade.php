@@ -85,8 +85,9 @@
                                                     <a wire:navigate href="">
                                                         <div class="flex items-center gap-x-3">
                                                             <img class="inline-block size-[38px] rounded-full"
-                                                                src="{{ Storage::url(str_replace('public/', '', $recipe->image)) }}"
+                                                                src="{{ asset('storage/' . str_replace('public/', '', $recipe->image)) }}"
                                                                 alt="Recipe Image">
+
                                                             <span
                                                                 class="block text-sm font-semibold text-gray-800 dark:text-neutral-200">{{ str($recipe->name)->words(3) }}</span>
                                                         </div>
@@ -126,7 +127,7 @@
                         <div class="px-6 py-1.5">
                             <a wire:navigate
                                 class="inline-flex items-center gap-x-1 text-sm text-green-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-green-500"
-                                href="edit/{{ $recipe->id }}/product">
+                                href="edit/{{ $recipe->id }}/recipe">
                                 Edit
                             </a>
                         </div>
