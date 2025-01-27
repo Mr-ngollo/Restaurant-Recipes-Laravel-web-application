@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/recipe/{recipe_id}/details',RecipeDetails::class);
+
+// Route::get('/all/recipes',AllRecipes::class);
+
 Route::get('/recipe/details', RecipeDetails::class);
 
 Route::

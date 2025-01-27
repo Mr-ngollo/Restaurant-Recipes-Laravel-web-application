@@ -11,12 +11,13 @@ class Category extends Model
 
     protected $fillable = ['name'];
 
-    public function products()
+    public function recipes()
     {
         return $this->hasMany(Recipe::class);
     }
 
-    public function scopeSearch($query, $value){
-        $query->where('name','like',"%{$value}%");
+    public function scopeSearch($query, $value)
+    {
+        return $query->where('name', 'like', "%{$value}%");
     }
 }

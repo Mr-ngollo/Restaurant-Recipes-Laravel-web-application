@@ -27,14 +27,14 @@ class RecipeListing extends Component
 
     public function updateRecipeList()
     {
-        if ($this->category_id == 0) {
+        if ($this->category_id === 0) {
             $this->recipes = Recipe::with('category')
                 ->where('id', '!=', $this->current_recipe_id)
                 ->where('name', 'like', '%' . $this->searchTerm . '%')
                 ->orderBy('created_at', 'DESC')
                 ->limit(4)
                 ->get();
-        } elseif ($this->category_id == 'all') {
+        } elseif ($this->category_id === 'all') {
             $this->recipes = Recipe::with('category')
                 ->where('name', 'like', '%' . $this->searchTerm . '%')
                 ->get();

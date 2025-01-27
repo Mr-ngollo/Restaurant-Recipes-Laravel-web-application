@@ -1,52 +1,39 @@
-<div class="bg-gray-100 rounded-lg hover:border border-green-400 shadow-md p-1">
-    <a href="/recipe/details">
+<div class="bg-gray-100 shadow-sm rounded-lg hover:border border-green-400 p-1">
+    <a wire:navigate href="/recipe/{{$recipe->id}}/details">
         <div>
-            <img src="{{ asset('assets/images/2.jpg') }}" alt="Recipe1 picture"
-                class="rounded object-cover w-full h-auto sm:h-64 sm:w-64">
+            <img src="{{ $recipe->image ? asset('storage/' . $recipe->image) : asset('/assets/images/2.jpg') }}" alt="recipe-images" class="rounded-t-lg object-cover w-full h-[180px]">
         </div>
         <div>
-            <div class="flex mt-4 gap-2 px-2">
-                <img src="{{ asset('assets/images/githublogo.png') }}" alt="The profile for the chef."
-                    class="rounded-full h-10 w-10 cursor-pointer">
-                <h2 class="font-bold mt-2 text-gray-800 hover:text-gray-900 cursor-pointer">Heading.</h2>
-            </div>
-            <div class="border-t mt-4 border-gray-900"></div>
-            <p class="line-clamp-2 px-3">And this will be the
-                paragraph of the recipes where there will be the little explainations on the specific recipes.
-            </p>
-        </div>
-        <div>
-            <div class="flex flex-col sm:flex-row justify-between px-2 py-2">
-                <div class="flex gap-2 items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="h-6 w-6 cursor-pointer">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
-                    </svg>
-                    <span class="text-medium text-yellow-300">123 reviews</span>
+            <h2 class="line-clamp-1 px-3 font-medium">{{ $recipe->name }}</h2>
+            <h2 class="line-clamp-2 px-3">{{ $recipe->description }}</h2>
+            <div class="flex justify-between px-3 py-2">
+                <div class="bg-green-200 p-1 rounded-md">
+                    <h2 class="text-1xl">{{ $recipe->category->name }}</h2>
                 </div>
-                <div class="flex gap-2 items-center mt-2 sm:mt-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="h-6 w-6 cursor-pointer">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
-                    </svg>
-                    <span class="text-medium text-yellow-800">233 comments</span>
-                </div>
+                <h2 class="text-1xl font-medium">${{ $recipe->price }}</h2>
             </div>
-            <div
-                class="flex cursor-pointer justify-center gap-2 w-full bg-green-800 text-center rounded px-4 py-2 hover:bg-green-900 text-sm font-medium text-white shadow focus:outline-none focus:ring active:bg-green-700 sm:w-auto">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M9 3.75H6.912a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H15M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859M12 3v8.25m0 0-3-3m3 3 3-3" />
-                </svg>
-                <a
-                    href="{{auth()->check() ? '/MyViews' : '/auth/login'}}"
-                    >
-                    Add to view
+            @if (auth()->check())
+            <a wire:click.prevent="addToCart({{ $recipe->id }})" href="#">
+                <div class="flex gap-2 justify-center w-full rounded bg-green-600 px-12 py-2 text-sm font-medium text-white text-center shadow hover:bg-green-700 focus:outline-none focus:ring active:bg-green-500 sm:w-auto">
+                    <div wire:loading class="animate-spin inline-block size-4 border-[3px] border-current border-t-transparent text-white-600 rounded-full dark:text-green-500" role="status" aria-label="loading">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                    </svg>
+                    <span>Add to cart</span>
+                </div>
+            </a>
+            @else
+                <a wire:navigate href='/auth/login'>
+                    <div class="flex gap-2 justify-center w-full rounded bg-green-600 px-12 py-2 text-sm font-medium text-white text-center shadow hover:bg-green-700 focus:outline-none focus:ring active:bg-green-500 sm:w-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                        </svg>
+                        <span>Add to cart</span>
+                    </div>
                 </a>
-            </div>
+            @endif
         </div>
     </a>
 </div>
