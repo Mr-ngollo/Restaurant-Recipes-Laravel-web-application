@@ -23,7 +23,7 @@ class ManageCategory extends Component
         }
 
         $this->sortBy = $sortColum;
-        $this->sortDir = 'ASC';
+        $this->sortDir = 'ASC'; 
     }
     public function render()
     {

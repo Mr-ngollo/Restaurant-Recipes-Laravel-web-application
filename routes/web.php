@@ -7,6 +7,7 @@ use App\Livewire\EditRecipe;
 use App\Livewire\ManageCategory;
 use App\Livewire\ManageOrders;
 use App\Livewire\ManageRecipe;
+use App\Livewire\ManageUser;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\RecipeDetails;
 
@@ -23,6 +24,8 @@ group(["middleware" => "admin"], function () {
     Route::get('/recipes', ManageRecipe::class)->name('recipes');
 
     Route::get('/orders', ManageOrders::class)->name('orders');
+
+    Route::get('/users', ManageUser::class)->name('users');
 
     Route::get('/manage/categories', ManageCategory::class)->name('categories');
 

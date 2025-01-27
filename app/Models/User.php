@@ -6,7 +6,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Devdojo\Auth\Models\User as AuthUser;
-use App\Models\Review;
 
 class User extends AuthUser
 {
@@ -46,5 +45,10 @@ class User extends AuthUser
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function scopeSearch($query, $value){
+        $query->where('name', 'like', "%{$value}%")
+        ->orWhere('email', 'like', "%{$value}%");
     }
 }
