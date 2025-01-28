@@ -6,8 +6,8 @@ use Livewire\Component;
 
 class Contacts extends Component
 {
-    public function render()
+        public function render()
     {
-        return view('livewire.contacts')->title('E-commerce | Contact us');
+        return view('livewire.contacts')->title('RestRecipes | Contact us');
     }
 }

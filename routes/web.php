@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\ManageEnquiry;
 use App\Livewire\AddCategory;
 use App\Livewire\AddRecipeForm;
 use App\Livewire\AdminDashoard;
@@ -35,6 +36,8 @@ Route::group(["middleware" => "admin"], function () {
         Route::get('/orders', ManageOrders::class)->name('orders');
 
         Route::get('/users', ManageUser::class)->name('users');
+
+        Route::get('/enquiries', ManageEnquiry::class)->name('enquiries');
 
         Route::get('/manage/categories', ManageCategory::class)->name('categories');
 
