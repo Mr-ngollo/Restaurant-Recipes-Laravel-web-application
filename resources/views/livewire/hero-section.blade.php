@@ -22,7 +22,7 @@
                     </a>
                 @else
                     <a class="block w-full rounded bg-green-700 px-12 py-3 text-sm font-medium text-white shadow hover:bg-green-800 focus:outline-none focus:ring active:bg-green-500 sm:w-auto"
-                        href="#">
+                        href="{{ route('login') }}">
                         Get Started
                     </a>
                 @endif

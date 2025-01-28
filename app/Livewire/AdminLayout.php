@@ -8,6 +8,6 @@ class AdminLayout extends Component
 {
     public function render()
     {
-        return view('livewire.admin-layout');
+        return view('livewire.admin-layout')->title('RestRecipes | Admin Dashboard');
     }
 }

@@ -72,6 +72,6 @@ class UsersTable extends Component
                     ->orderBy($this->sortBy, $this->sortDir)
                     ->paginate($this->PerPage)
             ]
-        );
+        )->title('RestRecipes | Admin Dashboard');
     }
 }
