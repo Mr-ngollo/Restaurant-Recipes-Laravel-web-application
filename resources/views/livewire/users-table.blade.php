@@ -1,6 +1,17 @@
     <div>
         {{-- <livewire:bread-crumb :url="$currentUrl" /> --}}
         <section class="mt-10">
+            <!-- Success Message Alert -->
+            @if (session()->has('message'))
+                <div class="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded relative" role="alert">
+                    <strong class="font-bold">Success! </strong>
+                    <span class="block sm:inline">{{ session('message') }}</span>
+                    <button type="button" class="absolute top-0 bottom-0 right-0 px-4 py-3"
+                        onclick="this.parentElement.remove();">
+                        <span class="text-green-500">&times;</span>
+                    </button>
+                </div>
+            @endif
             <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
                 <!-- Start coding here -->
                 <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
@@ -24,7 +35,7 @@
                             <div class="flex space-x-3 items-center">
                                 <label class="w-40 text-sm font-medium text-gray-900">User Type :</label>
                                 <select wire:model.live = 'admin'
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
                                     <option value="">All</option>
                                     <option value="0">User</option>
                                     <option value="1">Admin</option>
@@ -36,25 +47,25 @@
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                 <tr>
-                                    @include('livewire.includes.table-sortable-th',[
+                                    @include('livewire.includes.table-sortable-th', [
                                         'name' => 'name',
-                                        'displayName' => 'Name'
+                                        'displayName' => 'Name',
                                     ])
-                                    @include('livewire.includes.table-sortable-th',[
+                                    @include('livewire.includes.table-sortable-th', [
                                         'name' => 'email',
-                                        'displayName' => 'Email'
+                                        'displayName' => 'Email',
                                     ])
-                                    @include('livewire.includes.table-sortable-th',[
+                                    @include('livewire.includes.table-sortable-th', [
                                         'name' => 'role',
-                                        'displayName' => 'Role'
+                                        'displayName' => 'Role',
                                     ])
-                                    @include('livewire.includes.table-sortable-th',[
+                                    @include('livewire.includes.table-sortable-th', [
                                         'name' => 'created_at',
-                                        'displayName' => 'Joined'
+                                        'displayName' => 'Joined',
                                     ])
-                                    @include('livewire.includes.table-sortable-th',[
+                                    @include('livewire.includes.table-sortable-th', [
                                         'name' => 'updated_at',
-                                        'displayName' => 'Last Update'
+                                        'displayName' => 'Last Update',
                                     ])
                                     <th scope="col" class="px-4 py-3">
                                         <span class="">Actions</span>
@@ -68,14 +79,13 @@
                                             class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $user->name }}</th>
                                         <td class="px-4 py-3">{{ $user->email }}</td>
-                                        <td class="px-4 py-3 {{ $user->role ? 'text-green-500' : 'text-blue-500' }} ">
+                                        <td class="px-4 py-3 {{ $user->role ? 'text-green-500' : 'text-green-500' }} ">
                                             {{ $user->role ? 'Admin' : 'Member' }}</td>
                                         <td class="px-4 py-3">{{ $user->created_at }}</td>
                                         <td class="px-4 py-3">{{ $user->updated_at }}</td>
                                         <td class="px-4 py-3 flex items-center justify-end">
-                                            <button
-                                                onclick="confirm('Are you sure you want to delete {{ $user->name }} ?') || stopImmediatePropagation()"
-                                                wire:click = "delete({{ $user->id }})"
+                                            <!-- Delete Button -->
+                                            <button wire:click="confirmDelete({{ $user->id }})"
                                                 class="px-3 flex py-1 text-red-500 hover:underline rounded">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -85,6 +95,49 @@
                                                 </svg>
                                                 delete
                                             </button>
+                                            <!-- Delete Confirmation Modal -->
+                                            @if ($confirmingUserDeletion)
+                                                <div
+                                                    class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-20">
+                                                    <div
+                                                        class="relative p-4 w-full max-w-md max-h-full bg-white rounded-lg shadow-sm dark:bg-gray-700">
+                                                        <button type="button" wire:click="cancelDelete"
+                                                            class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                                                            <svg class="w-3 h-3" aria-hidden="true"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 14 14">
+                                                                <path stroke="currentColor" stroke-linecap="round"
+                                                                    stroke-linejoin="round" stroke-width="2"
+                                                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                                            </svg>
+                                                        </button>
+                                                        <div class="p-4 md:p-5 text-center">
+                                                            <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
+                                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                                fill="none" viewBox="0 0 20 20">
+                                                                <path stroke="currentColor" stroke-linecap="round"
+                                                                    stroke-linejoin="round" stroke-width="2"
+                                                                    d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                            </svg>
+                                                            <h3
+                                                                class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                                                                Are you sure you want to delete
+                                                                {{ $user->name }}?
+                                                            </h3>
+
+                                                            <button wire:click="deleteUser" type="button"
+                                                                class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                                                                Yes, I'm sure
+                                                            </button>
+
+                                                            <button wire:click="cancelDelete" type="button"
+                                                                class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                                                No, cancel
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
                                         </td>
                                     </tr>
                             </tbody>
@@ -97,7 +150,7 @@
                             <div class="flex space-x-4 items-center mb-3">
                                 <label class="w-32 text-sm font-medium text-gray-900">Per Page</label>
                                 <select wire:model.live = 'PerPage'
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
                                     <option value="5">5</option>
                                     <option value="10">10</option>
                                     <option value="20">20</option>
