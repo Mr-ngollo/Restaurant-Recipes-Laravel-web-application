@@ -15,8 +15,8 @@
                 <nav aria-label="Global">
                     <ul class="flex items-center gap-6 text-sm">
                         <li><a class="text-gray-500 transition hover:text-gray-500/75" href="/">Home</a></li>
-                        <li><a class="text-gray-500 transition hover:text-gray-500/75" href="#">Explore More</a></li>
-                        <li><a class="text-gray-500 transition hover:text-gray-500/75" href="#">About</a></li>
+                        <li><a class="text-gray-500 transition hover:text-gray-500/75" href="/all/recipes">Explore More</a></li>
+                        <li><a class="text-gray-500 transition hover:text-gray-500/75" href="/about/us">About</a></li>
                         <li><a class="text-gray-500 transition hover:text-gray-500/75" href="/contacts">Contact</a></li>
                     </ul>
                 </nav>

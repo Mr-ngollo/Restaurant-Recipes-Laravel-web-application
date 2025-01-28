@@ -5,6 +5,7 @@ use App\Livewire\AddCategory;
 use App\Livewire\AddRecipeForm;
 use App\Livewire\AdminDashoard;
 use App\Livewire\AdminReviewsTable;
+use App\Livewire\AllRecipies;
 use App\Livewire\Contacts;
 use App\Livewire\EditRecipe;
 use App\Livewire\ManageCategory;
@@ -23,7 +24,7 @@ Route::get('/recipe/{recipe_id}/details', RecipeDetails::class);
 
 Route::get('/recipes/{id}/reviews', RecipeReviews::class)->name('recipes.reviews');
 
-// Route::get('/all/recipes',AllRecipes::class);
+Route::get('/all/recipes',AllRecipies::class);
 Route::get('/contacts',Contacts::class);
 
 Route::get('/cookie-policy', function () {

@@ -24,19 +24,19 @@
                 </div>
                 <p class="mt-2 text-sm text-gray-800 dark:text-neutral-200">
                     We use cookies to improve your experience and for marketing. Visit our <a
-                        class="inline-flex items-center gap-x-1.5 text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
+                        class="inline-flex items-center gap-x-1.5 text-green-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-green-500"
                         href="{{ route('cookie.policy') }}">Cookies Policy</a> to learn more.
                 </p>
-                <div class="mt-5 mb-2 w-full flex flex-wrap gap-x-2 gap-y-2">
+                <div class="mt-5 mb-2 w-full flex gap-x-2 gap-y-2">
                     <div class="grid w-full sm:w-1/2">
                         <button type="button" @click="acceptedCookies = true; showCookieBanner = false"
-                            class="py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                            class="py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none">
                             Allow all
                         </button>
                     </div>
                     <div class="grid w-full sm:w-1/2">
                         <button type="button" @click="acceptedCookies = false; showCookieBanner = false"
-                            class="py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                            class="py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none">
                             Reject all
                         </button>
                     </div>

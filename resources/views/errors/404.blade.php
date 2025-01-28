@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <title>{{ $title ?? 'Page Title' }}</title>
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
@@ -13,7 +13,7 @@
     <!-- ========== HEADER ========== -->
     <header class="mb-auto flex justify-center z-50 w-full py-4">
       <nav class="px-4 sm:px-6 lg:px-8">
-        <a class="flex-none text-xl font-semibold sm:text-3xl dark:text-white" href="#" aria-label="Brand">Brand</a>
+        <a class="flex-none text-xl font-semibold sm:text-3xl dark:text-white" href="#" aria-label="RestRecipes">RestRecipes.</a>
       </nav>
     </header>
     <!-- ========== END HEADER ========== -->
@@ -37,7 +37,10 @@
     <!-- ========== FOOTER ========== -->
     <footer class="mt-auto text-center py-5">
       <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-sm text-gray-500 dark:text-neutral-500">© All Rights Reserved. 2025.</p>
+        {{-- <p class="text-sm text-gray-500 dark:text-neutral-500">© All Rights Reserved. 2025.</p> --}}
+        <p class="text-lg text-gray-900">
+            &copy; 2025. Developed by ngollo.dev <i class="fas fa-heart text-red-500"></i> All rights reserved.
+        </p>
       </div>
     </footer>
     <!-- ========== END FOOTER ========== -->
