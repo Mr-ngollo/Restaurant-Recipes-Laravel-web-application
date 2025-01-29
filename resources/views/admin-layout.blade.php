@@ -225,7 +225,7 @@
 <!-- End Sidebar -->
 
 <!-- Content -->
-<div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:ps-72">
+<div class="w-full bg-gray-200 min-h-screen pt-10 px-4 sm:px-6 md:px-8 lg:ps-72">
     <!-- your content goes here ... -->
     {{ $slot }}
 </div>

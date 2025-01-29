@@ -60,7 +60,9 @@ class AdminReviewsTable extends Component
             ->orderBy($this->sortField, $this->sortDirection)
             ->paginate($this->perPage);
 
-        return view('livewire.admin-reviews-table', compact('reviews'))
-        ->layout('admin-layout');
+        return view('livewire.admin-reviews-table', [
+            'reviewCounter' => Review::count(),
+            'reviews' => $reviews,
+        ])->layout('admin-layout');
     }
 }
