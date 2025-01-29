@@ -19,11 +19,6 @@ class RecipeDetails extends Component
         $this->loadReviews();
     }
 
-    // public function mount($recipeId)
-    // {
-    //     $this->recipeId = $recipeId;
-
-    // }
 
     public function loadReviews()
     {

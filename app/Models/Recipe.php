@@ -11,7 +11,12 @@ class Recipe extends Model
         'description',
         'price',
         'category_id',
-        'image'
+        'image',
+        'ingredients',
+        'preparation_steps',
+        'cooking_time',
+        'dietary_information',
+        'cuisine_type'
     ];
 
     public function category()

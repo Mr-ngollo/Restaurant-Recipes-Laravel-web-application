@@ -8,7 +8,7 @@
                 <livewire:item-card lazy :recipe_details="$recipe" wire:key="{{$recipe->id}}"/>
             @endforeach
         @else
-            <h2 class="text-2xl text-gray-300">Sorry No Recipe Available For This Category</h2>
+            <h2 class="text-2xl text-gray-300">Sorry No Recipe Available.</h2>
         @endif
 
     </div>

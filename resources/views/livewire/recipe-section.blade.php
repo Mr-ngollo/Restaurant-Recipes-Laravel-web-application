@@ -5,7 +5,7 @@
         @include('components.navigation.view-all', [
             'Category' => 'Latest Recipes.',
         ])
-        <livewire:recipe-listing :category_id="2" :current_recipe_id="0" />
+        <livewire:recipe-listing :category_id="1" :current_recipe_id="0" />
     </div>
 
     <!-- Flour Recipes Section -->

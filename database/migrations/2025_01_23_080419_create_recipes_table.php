@@ -18,8 +18,13 @@ return new class extends Migration
             $table->text('description');
             $table->decimal('price', 8, 2);
             $table->string('image')->nullable();
-            $table->timestamps();
+            $table->text('ingredients')->nullable();
+            $table->text('preparation_steps')->nullable();
+            $table->integer('cooking_time')->nullable(); 
+            $table->string('dietary_information')->nullable();
+            $table->string('cuisine_type')->nullable();
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->timestamps();
         });
     }
     /**
