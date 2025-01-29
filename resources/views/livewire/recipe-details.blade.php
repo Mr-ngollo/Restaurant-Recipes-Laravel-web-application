@@ -32,23 +32,32 @@
     </div>
 
     <!-- Ingredients & Preparation -->
-    <div class="mt-10 p-6 bg-gray-100 rounded-lg">
-        <h3 class="text-xl font-semibold">Ingredients</h3>
-        <ul class="list-disc list-inside mt-2 text-gray-700">
+    <div class="mt-10 p-6 bg-white rounded-xl shadow-xl border border-gray-200">
+        <h3 class="text-3xl font-bold text-green-800 border-b-4 border-green-500 pb-2 inline-block">
+            🍽️ Ingredients
+        </h3>
+        <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700 text-lg">
             @foreach (json_decode($recipe->ingredients) as $ingredient)
-                <li>{{ trim($ingredient) }}</li>
+                <li class="pl-2 transition-all hover:text-green-600 hover:font-medium">
+                    {{ trim($ingredient) }}
+                </li>
             @endforeach
         </ul>
 
-        <h3 class="text-xl font-semibold mt-6">Preparation Steps</h3>
-        <ol class="list-decimal list-inside mt-2 text-gray-700">
+        <h3 class="text-3xl font-bold text-green-800 border-b-4 border-green-500 pb-2 mt-8 inline-block">
+            👨‍🍳 Preparation Steps
+        </h3>
+        <ol class="list-decimal list-inside mt-4 space-y-3 text-gray-700 text-lg">
             @foreach (json_decode($recipe->preparation_steps) as $step)
                 @if (trim($step) != '')
-                    <li>{{ trim($step) }}</li>
+                    <li class="pl-2 transition-all hover:text-green-600 hover:font-medium">
+                        {{ trim($step) }}
+                    </li>
                 @endif
             @endforeach
         </ol>
     </div>
+
 
     <!-- Reviews Component -->
     @livewire('recipe-reviews', ['recipeId' => $recipe->id])
