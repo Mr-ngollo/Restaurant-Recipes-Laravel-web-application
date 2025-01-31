@@ -11,4 +11,14 @@
         <li class="w-full h-4 bg-gray-200 rounded-full dark:bg-neutral-700"></li>
       </ul>
     </div>
+
+    <div class="mt-2 w-full flex justify-between">
+      <span class="bg-gray-200 rounded-full h-10 w-1/4 dark:bg-neutral-700"></span>
+      <span class="bg-gray-200 rounded-full h-4 w-1/4 dark:bg-neutral-700"></span>
+    </div>
+
+    <div class="mt-2 w-full flex gap-3 ">
+      <span class="bg-gray-200 rounded-full h-5 w-1/4 dark:bg-neutral-700"></span>
+      <span class="bg-gray-200 rounded-full h-4 w-1/4 dark:bg-neutral-700"></span>
+    </div>
   </div>

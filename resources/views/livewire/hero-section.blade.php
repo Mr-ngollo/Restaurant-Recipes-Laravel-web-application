@@ -1,5 +1,5 @@
 <section class="relative bg-gray-50">
-    <div class="absolute inset-0 bg-cover bg-center opacity-50"
+    <div class="absolute inset-0 bg-cover bg-center opacity-70"
         style="background-image: url('{{ asset('assets/images/recipehero.jpg') }}');"></div>
     <div class="relative mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:items-center">
         <div class="mx-auto max-w-xl text-center">

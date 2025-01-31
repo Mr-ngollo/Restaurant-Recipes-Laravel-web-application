@@ -18,7 +18,7 @@
                 <div class="bg-green-200 p-1 rounded-md">
                     <h2 class="text-1xl">{{ $recipe->category->name }}</h2>
                 </div>
-                <h2 class="text-1xl font-medium">${{ $recipe->price }}</h2>
+                <h2 class="text-1xl font-bold">read more!</h2>
             </div>
             @if (auth()->check())
                 <a wire:click.prevent="addToCart({{ $recipe->id }})" href="#">

@@ -69,10 +69,14 @@
         </div>
         <!-- End Grid -->
 
-        <div class="mt-4 grid">
-            <button type="submit"
-                class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700">Send
-                inquiry</button>
-        </div>
+        <button type="submit"
+            class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none">
+            <div wire:loading
+                class="animate-spin hidden inline-block size-4 border-[3px] border-current border-t-transparent text-white-600 rounded-full dark:text-green-500"
+                role="status" aria-label="loading">
+                <span class="sr-only">Loading...</span>
+            </div>
+            Submit Your Enquiry
+        </button>
     </form>
 </div>
