@@ -17,11 +17,11 @@
 <!-- ========== MAIN CONTENT ========== -->
 <!-- Breadcrumb -->
 <div
-    class="sticky top-0 inset-x-0 z-20 bg-white border-y px-4 sm:px-6 lg:px-8 lg:hidden dark:bg-neutral-800 dark:border-neutral-700">
+    class="sticky top-0 inset-x-0 z-20 bg-gradient-to-r from-blue-500 to-purple-600 border-y px-4 sm:px-6 lg:px-8 lg:hidden dark:bg-neutral-800 dark:border-neutral-700">
     <div class="flex items-center py-2">
         <!-- Navigation Toggle -->
         <button type="button"
-            class="size-8 flex justify-center items-center gap-x-2 border border-gray-200 text-gray-800 hover:text-gray-500 rounded-lg focus:outline-none focus:text-gray-500 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:text-neutral-200 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+            class="size-8 flex justify-center items-center gap-x-2 border border-gray-200 text-white hover:text-gray-300 rounded-lg focus:outline-none focus:text-gray-300 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:text-neutral-200 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
             aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-application-sidebar"
             aria-label="Toggle navigation" data-hs-overlay="#hs-application-sidebar">
             <span class="sr-only">Toggle Navigation</span>
@@ -36,16 +36,16 @@
         <!-- End Navigation Toggle -->
 
         <!-- Breadcrumb -->
-        <ol class="ms-3 flex items-center whitespace-nowrap">
-            <li class="flex items-center text-sm text-gray-800 dark:text-neutral-400">
+        <ol class="ms-3 flex items-center whitespace-nowrap text-white">
+            <li class="flex items-center text-sm">
                 Application Layout
-                <svg class="shrink-0 mx-3 overflow-visible size-2.5 text-gray-400 dark:text-neutral-500" width="16"
+                <svg class="shrink-0 mx-3 overflow-visible size-2.5 text-gray-200" width="16"
                     height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5 1L10.6869 7.16086C10.8637 7.35239 10.8637 7.64761 10.6869 7.83914L5 14"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                 </svg>
             </li>
-            <li class="text-sm font-semibold text-gray-800 truncate dark:text-neutral-400" aria-current="page">
+            <li class="text-sm font-semibold truncate" aria-current="page">
                 Dashboard
             </li>
         </ol>
@@ -62,7 +62,7 @@
     w-[260px] h-full
     hidden
     fixed inset-y-0 start-0 z-[60]
-    bg-white border-e border-gray-200
+    bg-gradient-to-r from-blue-500 to-purple-600 border-e border-gray-200
     lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
     dark:bg-neutral-800 dark:border-neutral-700"
     role="dialog" tabindex="-1" aria-label="Sidebar">
@@ -73,7 +73,7 @@
             wire:navigate
             class="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
                 href="/admin/dashboard" aria-label="RestRecipes.">
-                <a class="flex gap-4 text-gray-600" href="/admin/dashboard">
+                <a class="flex gap-4 text-white" href="/admin/dashboard">
                     <img src="{{ asset('assets/images/githublogo.png') }}" class="w-10 h-10" alt="GitHub Logo" />
                     <span class="font-extrabold mt-2">RestRecipes.</span>
                 </a>
@@ -94,8 +94,8 @@
                         <a
                         wire:navigate
                         class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm
-                        text-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300
-                        {{Request::is('admin/dashboard') ? 'bg-gray-100' : ''}}"
+                        text-white rounded-lg hover:bg-blue-700 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300
+                        {{Request::is('admin/dashboard') ? 'bg-blue-700' : ''}}"
                             href="/admin/dashboard">
                             <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -110,8 +110,8 @@
                         <a
                         wire:navigate
                         class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm
-                            text-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300
-                            {{Request::is('manage/categories') ? 'bg-gray-100' : ''}}"
+                            text-white rounded-lg hover:bg-blue-700 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300
+                            {{Request::is('manage/categories') ? 'bg-blue-700' : ''}}"
                             href="/manage/categories">
                             <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -134,8 +134,8 @@
                         <a
                         wire:navigate
                         class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm
-                            text-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300
-                            {{Request::is('recipes') ? 'bg-gray-100' : ''}}"
+                            text-white rounded-lg hover:bg-blue-700 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300
+                            {{Request::is('recipes') ? 'bg-blue-700' : ''}}"
                             href="/recipes">
                             <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -150,8 +150,8 @@
                         <a
                         wire:navigate
                         class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm
-                            text-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300
-                            {{Request::is('orders') ? 'bg-gray-100' : ''}}"
+                            text-white rounded-lg hover:bg-blue-700 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300
+                            {{Request::is('orders') ? 'bg-blue-700' : ''}}"
                             href="/orders">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="size-6" width="24"
@@ -166,8 +166,8 @@
                         <a
                         wire:navigate
                         class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm
-                            text-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300
-                            {{Request::is('users') ? 'bg-gray-100' : ''}}"
+                            text-white rounded-lg hover:bg-blue-700 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300
+                            {{Request::is('users') ? 'bg-blue-700' : ''}}"
                             href="/users">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
@@ -179,8 +179,8 @@
                         <a
                         wire:navigate
                         class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm
-                            text-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300
-                            {{Request::is('enquiries') ? 'bg-gray-100' : ''}}"
+                            text-white rounded-lg hover:bg-blue-700 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300
+                            {{Request::is('enquiries') ? 'bg-blue-700' : ''}}"
                             href="/enquiries">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0-3-3m3 3 3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
@@ -192,8 +192,8 @@
                         <a
                         wire:navigate
                         class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm
-                            text-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300
-                            {{Request::is('reviews') ? 'bg-gray-100' : ''}}"
+                            text-white rounded-lg hover:bg-blue-700 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300
+                            {{Request::is('reviews') ? 'bg-blue-700' : ''}}"
                             href="/reviews">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0-3-3m3 3 3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
@@ -205,7 +205,7 @@
                         <a
                         wire:navigate
                         class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm
-                            text-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300"
+                            text-white rounded-lg hover:bg-blue-700 dark:hover:bg-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-300"
                             href="/auth/login">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="size-6">

@@ -21,7 +21,7 @@
 
 <body>
     <livewire:header />
-    <div class="container mx-auto p-6 max-w-4xl">
+    <div class="container mx-auto p-6 max-w-4xl bg-gray-100 animate__animated animate__fadeIn">
         <h1 class="text-4xl font-semibold text-gray-900 dark:text-white mb-6">Cookie Policy</h1>
 
         <div class="text-gray-800 dark:text-neutral-200 space-y-6">
